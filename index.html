@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Мифы о пожарах: спаси ребёнка</title>
+  <meta name="description" content="Интерактивный сайт о профилактике детской гибели на пожарах." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="#home">
+        <span class="brand__icon">🔥</span>
+        <span class="brand__text">Мифы о пожарах: спаси ребёнка</span>
+      </a>
+      <nav class="menu">
+        <a href="#myths">Миф vs Реальность</a>
+        <a href="#quiz">Квиз</a>
+        <a href="#materials">Материалы</a>
+        <a href="#bot">Telegram-бот</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero section">
+      <div class="container hero__grid">
+        <div class="hero__content card glass">
+          <span class="badge">Профилактика детской гибели на пожарах</span>
+          <h1>Опасные мифы — в понятные действия для родителей и педагогов.</h1>
+          <p>
+            Сайт помогает спокойно объяснять ребёнку тему пожара, проверять готовность за 60 секунд
+            и использовать материалы дома, в школе и в детском саду.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#quiz">Пройти квиз</a>
+            <a class="btn btn--secondary" href="#materials">Открыть материалы</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>10</strong><span>опасных мифов</span></div>
+            <div class="stat"><strong>10</strong><span>карточек сайта</span></div>
+            <div class="stat"><strong>60 сек</strong><span>быстрый самотест</span></div>
+          </div>
+        </div>
+
+        <aside class="card slider" aria-label="Слайдер мифов">
+          <div class="slider__top">
+            <h2>10 самых опасных мифов</h2>
+            <div class="slider__controls">
+              <button class="icon-btn" id="prevSlide" aria-label="Назад">←</button>
+              <button class="icon-btn" id="nextSlide" aria-label="Вперёд">→</button>
+            </div>
+          </div>
+          <div class="slider__body" id="slideBox">
+            <div class="slider__counter" id="slideNum"></div>
+            <h3 id="slideTitle"></h3>
+            <p id="slideText"></p>
+          </div>
+          <div class="dots" id="dots"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="myths">
+      <div class="container">
+        <span class="badge">Раздел сайта</span>
+        <h2 class="section__title">Миф vs Реальность</h2>
+        <p class="section__lead">
+          Ниже размещены 10 карточек. Полностью заполнены только те примеры, которые уже были подтверждены
+          в описании проекта; остальные оставлены в безопасном редакционном шаблоне.
+        </p>
+
+        <div class="notice">
+          Пользователь попросил «придумать мифы», но для проекта профилактики я не добавляю вымышленные
+          «точные» карточки. Их лучше заполнять только утверждённым списком, чтобы не исказить смысл материалов.
+        </div>
+
+        <div class="cards-grid">
+          <article class="myth-card card">
+            <div class="myth-card__tags">
+              <span class="tag tag--myth">Миф 1</span>
+              <span class="tag tag--real">Подтверждённый пример</span>
+            </div>
+            <h3>«Дети прячутся под кроватью и там их легче найти»</h3>
+            <div class="panels">
+              <div class="panel panel--myth">
+                <strong>Миф</strong>
+                <p>Опасное ожидание, что ребёнок в стрессовой ситуации останется на месте и дождётся помощи.</p>
+              </div>
+              <div class="panel panel--real">
+                <strong>Реальность</strong>
+                <p>Ребёнка нужно учить выходить на голос взрослого и следовать заранее понятному плану.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="myth-card card">
+            <div class="myth-card__tags">
+              <span class="tag tag--myth">Миф 2</span>
+              <span class="tag tag--real">Редакционный шаблон</span>
+            </div>
+            <h3>Карточка под утверждённый миф проекта</h3>
+            <div class="panels">
+              <div class="panel panel--myth"><strong>Миф</strong><p>Добавьте точную формулировку из согласованного списка.</p></div>
+              <div class="panel panel--real"><strong>Реальность</strong><p>Добавьте подтверждённый факт и короткое правильное действие.</p></div>
+            </div>
+          </article>
+
+          <article class="myth-card card">
+            <div class="myth-card__tags">
+              <span class="tag tag--myth">Миф 3</span>
+              <span class="tag tag--real">Редакционный шаблон</span>
+            </div>
+            <h3>Карточка под утверждённый миф проекта</h3>
+            <div class="panels">
+              <div class="panel panel--myth"><strong>Миф</strong><p>Добавьте точную формулировку из согласованного списка.</p></div>
+              <div class="panel panel--real"><strong>Реальность</strong><p>Добавьте подтверждённый факт и короткое правильное действие.</p></div>
+            </div>
+          </article>
+
+          <article class="myth-card card">
+            <div class="myth-card__tags">
+              <span class="tag tag--myth">Миф 4</span>
+              <span class="tag tag--real">Редакционный шаблон</span>
+            </div>
+            <h3>Карточка под утверждённый миф проекта</h3>
+            <div class="panels">
+              <div class="panel panel--myth"><strong>Миф</strong><p>Добавьте точную формулировку из согласованного списка.</p></div>
+              <div class="panel panel--real"><strong>Реальность</strong><p>Добавьте подтверждённый факт и короткое правильное действие.</p></div>
+            </div>
+          </article>
+
+          <article class="myth-card card">
+            <div class="myth-card__tags">
+              <span class="tag tag--myth">Миф 5</span>
+              <span class="tag tag--real">Редакционный шаблон</span>
+            </div>
+            <h3>Карточка под утверждённый миф проекта</h3>
+            <div class="panels">
+              <div class="panel panel--myth"><strong>Миф</strong><p>Добавьте точную формулировку из согласованного списка.</p></div>
+              <div class="panel panel--real"><strong>Реальность</strong><p>Добавьте подтверждённый факт и короткое правильное действие.</p></div>
+            </div>
+          </article>
+
+          <article class="myth-card card">
+            <div class="myth-card__tags">
+              <span class="tag tag--myth">Миф 6</span>
+              <span class="tag tag--real">Редакционный шаблон</span>
+            </div>
+            <h3>Карточка под утверждённый миф проекта</h3>
+            <div class="panels">
+              <div class="panel panel--myth"><strong>Миф</strong><p>Добавьте точную формулировку из согласованного списка.</p></div>
+              <div class="panel panel--real"><strong>Реальность</strong><p>Добавьте подтверждённый факт и короткое правильное действие.</p></div>
+            </div>
+          </article>
+
+          <article class="myth-card card">
+            <div class="myth-card__tags">
+              <span class="tag tag--myth">Миф 7</span>
+              <span class="tag tag--real">Подтверждённый пример</span>
+            </div>
+            <h3>«Огонь всегда интересен детям»</h3>
+            <div class="panels">
+              <div class="panel panel--myth">
+                <strong>Миф</strong>
+                <p>Взрослый ожидает только любопытства и не учитывает, что ребёнок может реагировать страхом.</p>
+              </div>
+              <div class="panel panel--real">
+                <strong>Реальность</strong>
+                <p>Страх тоже возможен. Для спокойной адаптации используются чек-лист «Как говорить об огне» и сценарии бота без запугивания.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="myth-card card">
+            <div class="myth-card__tags">
+              <span class="tag tag--myth">Миф 8</span>
+              <span class="tag tag--real">Редакционный шаблон</span>
+            </div>
+            <h3>Карточка под утверждённый миф проекта</h3>
+            <div class="panels">
+              <div class="panel panel--myth"><strong>Миф</strong><p>Добавьте точную формулировку из согласованного списка.</p></div>
+              <div class="panel panel--real"><strong>Реальность</strong><p>Добавьте подтверждённый факт и короткое правильное действие.</p></div>
+            </div>
+          </article>
+
+          <article class="myth-card card">
+            <div class="myth-card__tags">
+              <span class="tag tag--myth">Миф 9</span>
+              <span class="tag tag--real">Редакционный шаблон</span>
+            </div>
+            <h3>Карточка под утверждённый миф проекта</h3>
+            <div class="panels">
+              <div class="panel panel--myth"><strong>Миф</strong><p>Добавьте точную формулировку из согласованного списка.</p></div>
+              <div class="panel panel--real"><strong>Реальность</strong><p>Добавьте подтверждённый факт и короткое правильное действие.</p></div>
+            </div>
+          </article>
+
+          <article class="myth-card card">
+            <div class="myth-card__tags">
+              <span class="tag tag--myth">Миф 10</span>
+              <span class="tag tag--real">Редакционный шаблон</span>
+            </div>
+            <h3>Карточка под утверждённый миф проекта</h3>
+            <div class="panels">
+              <div class="panel panel--myth"><strong>Миф</strong><p>Добавьте точную формулировку из согласованного списка.</p></div>
+              <div class="panel panel--real"><strong>Реальность</strong><p>Добавьте подтверждённый факт и короткое правильное действие.</p></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="quiz">
+      <div class="container card quiz-shell">
+        <span class="badge">Интерактив</span>
+        <h2 class="section__title">Проверь себя за 60 секунд</h2>
+        <p class="section__lead">
+          Квиз показывает, где семье или школе не хватает повторения темы. Результат появляется сразу.
+        </p>
+        <div class="quiz-layout">
+          <div class="quiz-info">
+            <h3>Что оценивает квиз</h3>
+            <ul>
+              <li>Есть ли спокойный разговорный сценарий со взрослым.</li>
+              <li>Понимает ли ребёнок, что нельзя прятаться.</li>
+              <li>Знает ли ребёнок, что нужно реагировать на голос.</li>
+              <li>Используются ли материалы сайта регулярно.</li>
+            </ul>
+          </div>
+          <div class="quiz-box">
+            <div class="progress"><div class="progress__bar" id="progressBar"></div></div>
+            <div class="quiz-box__meta" id="questionMeta"></div>
+            <h3 class="quiz-box__title" id="questionText"></h3>
+            <div class="quiz-box__answers">
+              <button class="btn btn--primary" data-answer="yes">Да</button>
+              <button class="btn btn--secondary" data-answer="no">Нет</button>
+            </div>
+            <div class="quiz-result" id="quizResult"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="materials">
+      <div class="container card materials-shell">
+        <span class="badge">Полезные материалы</span>
+        <h2 class="section__title">Скачать шаблоны</h2>
+        <p class="section__lead">
+          Структура раздела готова для родителей и школ. Кнопки скачивают базовые текстовые шаблоны.
+        </p>
+        <div class="materials-grid">
+          <article class="material card-lite">
+            <span class="tag tag--soft">Для дома</span>
+            <h3>Чек-лист для родителей</h3>
+            <p>Короткий шаблон повторения темы дома без запугивания.</p>
+            <button class="btn btn--ghost download-btn" data-file="checklist-home">Скачать</button>
+          </article>
+          <article class="material card-lite">
+            <span class="tag tag--soft">Для школы</span>
+            <h3>Плакат для класса</h3>
+            <p>Макет для напоминания о карточках, квизе и спокойном объяснении темы.</p>
+            <button class="btn btn--ghost download-btn" data-file="poster-school">Скачать</button>
+          </article>
+          <article class="material card-lite">
+            <span class="tag tag--soft">Для занятия</span>
+            <h3>Презентация для учителя</h3>
+            <p>Базовая последовательность проведения профилактического занятия.</p>
+            <button class="btn btn--ghost download-btn" data-file="presentation">Скачать</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="bot">
+      <div class="container card bot-shell">
+        <span class="badge">Встроенная помощь</span>
+        <h2 class="section__title">Telegram-бот</h2>
+        <p class="section__lead">
+          Блок показывает, как сайт может отвечать на типовые вопросы родителей и педагогов.
+        </p>
+        <div class="bot-grid">
+          <article class="bot-card card-lite">
+            <span class="tag tag--soft">Сценарий 1</span>
+            <h3>Что делать, если ребёнок боится огня?</h3>
+            <p>Связано с мифом №7 и спокойным обсуждением темы.</p>
+            <button class="btn btn--secondary bot-btn" data-bot="fear">Показать ответ</button>
+            <div class="bot-answer" id="answer-fear">Нажмите кнопку, чтобы показать ответ.</div>
+          </article>
+          <article class="bot-card card-lite">
+            <span class="tag tag--soft">Сценарий 2</span>
+            <h3>Как составить план эвакуации?</h3>
+            <p>Сценарий ведёт к материалам сайта и дальнейшему повторению темы.</p>
+            <button class="btn btn--secondary bot-btn" data-bot="plan">Показать ответ</button>
+            <div class="bot-answer" id="answer-plan">Нажмите кнопку, чтобы показать ответ.</div>
+          </article>
+          <article class="bot-card card-lite">
+            <span class="tag tag--soft">Сценарий 3</span>
+            <h3>Когда использовать квиз?</h3>
+            <p>После карточек или как быстрый вход в тему на уроке и дома.</p>
+            <button class="btn btn--secondary bot-btn" data-bot="quiz">Показать ответ</button>
+            <div class="bot-answer" id="answer-quiz">Нажмите кнопку, чтобы показать ответ.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© Мифы о пожарах: спаси ребёнка</span>
+      <span>Проект разложен на отдельные файлы index.html, style.css и script.js.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
