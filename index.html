@@ -5,25 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Мифы о пожарах: спаси ребёнка</title>
   <meta name="description" content="Интерактивный сайт о профилактике детской гибели на пожарах." />
+  <meta property="og:title" content="Мифы о пожарах: спаси ребёнка" />
+  <meta property="og:description" content="10 опасных мифов о детской гибели при пожарах — разбираем и учим правильно действовать. Квиз за 60 секунд." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Мифы о пожарах: спаси ребёнка" />
+  <meta name="twitter:description" content="10 опасных мифов о детской гибели при пожарах. Квиз за 60 секунд." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#home">Перейти к основному содержимому</a>
   <header class="header">
     <div class="container nav">
       <a class="brand" href="#home">
         <span class="brand__icon">🔥</span>
         <span class="brand__text">Мифы о пожарах: спаси ребёнка</span>
       </a>
-      <nav class="menu">
+      <nav class="menu" id="mainMenu">
         <a href="#myths">Миф vs Реальность</a>
         <a href="#quiz">Квиз</a>
         <a href="#materials">Материалы</a>
-        <a href="#bot">Telegram-бот</a>
+        <a href="#bot">Помощник</a>
       </nav>
+      <button class="burger" id="burgerBtn" aria-label="Меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
-  <main id="home">
+  <main id="home" tabindex="-1">
     <section class="hero section">
       <div class="container hero__grid">
         <div class="hero__content card glass">
@@ -52,7 +63,7 @@
               <button class="icon-btn" id="nextSlide" aria-label="Вперёд">→</button>
             </div>
           </div>
-          <div class="slider__body" id="slideBox">
+          <div class="slider__body" id="slideBox" role="status" aria-live="polite" aria-atomic="true">
             <div class="slider__counter" id="slideNum"></div>
             <h3 id="slideTitle"></h3>
             <p id="slideText"></p>
@@ -67,30 +78,45 @@
         <span class="badge">Раздел сайта</span>
         <h2 class="section__title">Миф vs Реальность</h2>
         <p class="section__lead">
-          Ниже размещены 10 карточек. Полностью заполнены только те примеры, которые уже были подтверждены
-          в описании проекта; остальные оставлены в безопасном редакционном шаблоне.
+          Карточки ниже заполнены на основе рекомендаций МЧС Беларуси по действиям детей и взрослых при пожаре.
+          Формулировки мифов сделаны в редакционном формате, а правильные действия основаны на официальных памятках и материалах МЧС.
         </p>
 
         <div class="notice">
-          Пользователь попросил «придумать мифы», но для проекта профилактики я не добавляю вымышленные
-          «точные» карточки. Их лучше заполнять только утверждённым списком, чтобы не исказить смысл материалов.
+          <strong>Официальные материалы МЧС:</strong>
+          <a href="https://mchs.gov.by/upload/iblock/b86/4parents.pdf" target="_blank" rel="noopener noreferrer">памятка для родителей «Безопасность ваших детей»</a>,
+          <a href="https://mchs.gov.by/multimediynye-materialy-obzh/naglyadno-izobrazitelnaya-produktsiya/pamyatki-i-buklety/" target="_blank" rel="noopener noreferrer">раздел «Памятки и буклеты»</a>
+          и
+          <a href="https://minobl.mchs.gov.by/novosti/291581/" target="_blank" rel="noopener noreferrer">пояснение МЧС о номере 112</a>.
+        </div>
+
+        <div class="notice">
+          <strong>Дата актуализации раздела:</strong> 20.03.2026. Ссылки выше использованы как официальная база, с которой нужно сверять памятки, публикации, занятия и сценарии обсуждения с детьми.
+        </div>
+
+        <div class="notice">
+          <strong>Редакционная адаптация:</strong> заголовки мифов, краткие формулировки, структура карточек и поясняющие примеры на этой странице адаптированы для проекта в понятной редакционной форме. Для точных формулировок, официальных алгоритмов действий и использования в инструктажах опирайтесь на материалы МЧС по ссылкам выше.
+        </div>
+
+        <div class="notice">
+          Если вопрос выходит за рамки этих карточек, сверяйтесь с официальными инструкциями МЧС. Медицинские вопросы о сильном страхе и тревоге у ребёнка лучше обсуждать с педиатром или профильным специалистом.
         </div>
 
         <div class="cards-grid">
           <article class="myth-card card">
             <div class="myth-card__tags">
               <span class="tag tag--myth">Миф 1</span>
-              <span class="tag tag--real">Подтверждённый пример</span>
+              <span class="tag tag--real">На основе МЧС</span>
             </div>
-            <h3>«Дети прячутся под кроватью и там их легче найти»</h3>
+            <h3>«Если начался пожар, ребёнку лучше спрятаться под кроватью или в шкафу»</h3>
             <div class="panels">
               <div class="panel panel--myth">
                 <strong>Миф</strong>
-                <p>Опасное ожидание, что ребёнок в стрессовой ситуации останется на месте и дождётся помощи.</p>
+                <p>Взрослые иногда думают, что в укромном месте ребёнок будет в безопасности и его легче найти.</p>
               </div>
               <div class="panel panel--real">
                 <strong>Реальность</strong>
-                <p>Ребёнка нужно учить выходить на голос взрослого и следовать заранее понятному плану.</p>
+                <p>МЧС прямо предупреждает: нельзя прятаться в задымлённом помещении. Ребёнка нужно учить сразу покидать опасную зону, реагировать на голос взрослого и выходить по понятному плану.</p>
               </div>
             </div>
           </article>
@@ -98,77 +124,107 @@
           <article class="myth-card card">
             <div class="myth-card__tags">
               <span class="tag tag--myth">Миф 2</span>
-              <span class="tag tag--real">Редакционный шаблон</span>
+              <span class="tag tag--real">На основе МЧС</span>
             </div>
-            <h3>Карточка под утверждённый миф проекта</h3>
+            <h3>«Если дыма немного, можно остаться в комнате и посмотреть, что происходит»</h3>
             <div class="panels">
-              <div class="panel panel--myth"><strong>Миф</strong><p>Добавьте точную формулировку из согласованного списка.</p></div>
-              <div class="panel panel--real"><strong>Реальность</strong><p>Добавьте подтверждённый факт и короткое правильное действие.</p></div>
+              <div class="panel panel--myth">
+                <strong>Миф</strong>
+                <p>Кажется, что сначала надо разобраться в ситуации и только потом выходить.</p>
+              </div>
+              <div class="panel panel--real">
+                <strong>Реальность</strong>
+                <p>МЧС рекомендует при первых признаках горения, задымления, запаха гари или повышенной температуры немедленно покинуть помещение и не задерживаться внутри.</p>
+              </div>
             </div>
           </article>
 
           <article class="myth-card card">
             <div class="myth-card__tags">
               <span class="tag tag--myth">Миф 3</span>
-              <span class="tag tag--real">Редакционный шаблон</span>
+              <span class="tag tag--real">На основе МЧС</span>
             </div>
-            <h3>Карточка под утверждённый миф проекта</h3>
+            <h3>«Если огонь маленький, ребёнок может попробовать потушить его сам»</h3>
             <div class="panels">
-              <div class="panel panel--myth"><strong>Миф</strong><p>Добавьте точную формулировку из согласованного списка.</p></div>
-              <div class="panel panel--real"><strong>Реальность</strong><p>Добавьте подтверждённый факт и короткое правильное действие.</p></div>
+              <div class="panel panel--myth">
+                <strong>Миф</strong>
+                <p>Иногда кажется, что так можно выиграть время и не беспокоить взрослых.</p>
+              </div>
+              <div class="panel panel--real">
+                <strong>Реальность</strong>
+                <p>МЧС учит детей другому: быстро убегать из помещения, звать на помощь взрослых, сообщать о пожаре и не пытаться тушить его самостоятельно.</p>
+              </div>
             </div>
           </article>
 
           <article class="myth-card card">
             <div class="myth-card__tags">
               <span class="tag tag--myth">Миф 4</span>
-              <span class="tag tag--real">Редакционный шаблон</span>
+              <span class="tag tag--real">На основе МЧС</span>
             </div>
-            <h3>Карточка под утверждённый миф проекта</h3>
+            <h3>«Можно вернуться в горящую комнату за телефоном, игрушкой или документами»</h3>
             <div class="panels">
-              <div class="panel panel--myth"><strong>Миф</strong><p>Добавьте точную формулировку из согласованного списка.</p></div>
-              <div class="panel panel--real"><strong>Реальность</strong><p>Добавьте подтверждённый факт и короткое правильное действие.</p></div>
+              <div class="panel panel--myth">
+                <strong>Миф</strong>
+                <p>Человеку хочется спасти важные вещи, особенно если кажется, что он успеет.</p>
+              </div>
+              <div class="panel panel--real">
+                <strong>Реальность</strong>
+                <p>МЧС предупреждает: нельзя заходить обратно в горящее помещение, пока спасатели не скажут, что опасность миновала. Главная задача — выйти и остаться в безопасности.</p>
+              </div>
             </div>
           </article>
 
           <article class="myth-card card">
             <div class="myth-card__tags">
               <span class="tag tag--myth">Миф 5</span>
-              <span class="tag tag--real">Редакционный шаблон</span>
+              <span class="tag tag--real">На основе МЧС</span>
             </div>
-            <h3>Карточка под утверждённый миф проекта</h3>
+            <h3>«Достаточно просто выучить номер 101 или 112 — остальное ребёнок сам сообразит»</h3>
             <div class="panels">
-              <div class="panel panel--myth"><strong>Миф</strong><p>Добавьте точную формулировку из согласованного списка.</p></div>
-              <div class="panel panel--real"><strong>Реальность</strong><p>Добавьте подтверждённый факт и короткое правильное действие.</p></div>
+              <div class="panel panel--myth">
+                <strong>Миф</strong>
+                <p>Есть ощущение, что одного знания номера службы спасения уже достаточно.</p>
+              </div>
+              <div class="panel panel--real">
+                <strong>Реальность</strong>
+                <p>МЧС советует учить ребёнка не только звонить по номерам 101 или 112, но и называть свой адрес, объяснять, где и что горит, а сначала — выходить из опасной зоны.</p>
+              </div>
             </div>
           </article>
 
           <article class="myth-card card">
             <div class="myth-card__tags">
               <span class="tag tag--myth">Миф 6</span>
-              <span class="tag tag--real">Редакционный шаблон</span>
+              <span class="tag tag--real">На основе МЧС</span>
             </div>
-            <h3>Карточка под утверждённый миф проекта</h3>
+            <h3>«Если ребёнок уже большой, его можно спокойно оставлять одного без подготовки»</h3>
             <div class="panels">
-              <div class="panel panel--myth"><strong>Миф</strong><p>Добавьте точную формулировку из согласованного списка.</p></div>
-              <div class="panel panel--real"><strong>Реальность</strong><p>Добавьте подтверждённый факт и короткое правильное действие.</p></div>
+              <div class="panel panel--myth">
+                <strong>Миф</strong>
+                <p>Взрослые иногда переоценивают готовность ребёнка действовать в опасной ситуации без помощи.</p>
+              </div>
+              <div class="panel panel--real">
+                <strong>Реальность</strong>
+                <p>МЧС напоминает: малолетних детей нельзя оставлять без присмотра. Если взрослые считают, что ребёнок уже может оставаться один, его заранее нужно научить выходить из опасной зоны и вызывать спасателей.</p>
+              </div>
             </div>
           </article>
 
           <article class="myth-card card">
             <div class="myth-card__tags">
               <span class="tag tag--myth">Миф 7</span>
-              <span class="tag tag--real">Подтверждённый пример</span>
+              <span class="tag tag--real">На основе МЧС</span>
             </div>
-            <h3>«Огонь всегда интересен детям»</h3>
+            <h3>«Спички и зажигалки не опасны, если ребёнку один раз объяснили правила»</h3>
             <div class="panels">
               <div class="panel panel--myth">
                 <strong>Миф</strong>
-                <p>Взрослый ожидает только любопытства и не учитывает, что ребёнок может реагировать страхом.</p>
+                <p>Иногда взрослым кажется, что после короткого разговора риск уже снят.</p>
               </div>
               <div class="panel panel--real">
                 <strong>Реальность</strong>
-                <p>Страх тоже возможен. Для спокойной адаптации используются чек-лист «Как говорить об огне» и сценарии бота без запугивания.</p>
+                <p>МЧС рекомендует хранить спички и зажигалки в недоступных для детей местах и пресекать любые игры с огнём. Одного разговора недостаточно, нужны постоянный контроль и безопасная среда.</p>
               </div>
             </div>
           </article>
@@ -176,36 +232,54 @@
           <article class="myth-card card">
             <div class="myth-card__tags">
               <span class="tag tag--myth">Миф 8</span>
-              <span class="tag tag--real">Редакционный шаблон</span>
+              <span class="tag tag--real">На основе МЧС</span>
             </div>
-            <h3>Карточка под утверждённый миф проекта</h3>
+            <h3>«Ребёнку можно самому пользоваться плитой, печью или электроприборами, если он аккуратный»</h3>
             <div class="panels">
-              <div class="panel panel--myth"><strong>Миф</strong><p>Добавьте точную формулировку из согласованного списка.</p></div>
-              <div class="panel panel--real"><strong>Реальность</strong><p>Добавьте подтверждённый факт и короткое правильное действие.</p></div>
+              <div class="panel panel--myth">
+                <strong>Миф</strong>
+                <p>Аккуратность кажется достаточной заменой правилам и контролю взрослого.</p>
+              </div>
+              <div class="panel panel--real">
+                <strong>Реальность</strong>
+                <p>МЧС советует не разрешать детям самостоятельно пользоваться газовыми и электрическими приборами, не поручать им разжигать печи и следить, чтобы они не разжигали костры.</p>
+              </div>
             </div>
           </article>
 
           <article class="myth-card card">
             <div class="myth-card__tags">
               <span class="tag tag--myth">Миф 9</span>
-              <span class="tag tag--real">Редакционный шаблон</span>
+              <span class="tag tag--real">На основе МЧС</span>
             </div>
-            <h3>Карточка под утверждённый миф проекта</h3>
+            <h3>«План эвакуации — это просто картинка на стене, детям его знать не обязательно»</h3>
             <div class="panels">
-              <div class="panel panel--myth"><strong>Миф</strong><p>Добавьте точную формулировку из согласованного списка.</p></div>
-              <div class="panel panel--real"><strong>Реальность</strong><p>Добавьте подтверждённый факт и короткое правильное действие.</p></div>
+              <div class="panel panel--myth">
+                <strong>Миф</strong>
+                <p>Из-за этого плана часто не изучают заранее и не связывают с реальными действиями ребёнка.</p>
+              </div>
+              <div class="panel panel--real">
+                <strong>Реальность</strong>
+                <p>МЧС подчёркивает, что план эвакуации — это не просто картинка, а схема путей выхода и порядок действий при пожаре. Значит, маршрут и последовательность шагов нужно заранее объяснять и повторять.</p>
+              </div>
             </div>
           </article>
 
           <article class="myth-card card">
             <div class="myth-card__tags">
               <span class="tag tag--myth">Миф 10</span>
-              <span class="tag tag--real">Редакционный шаблон</span>
+              <span class="tag tag--real">На основе МЧС</span>
             </div>
-            <h3>Карточка под утверждённый миф проекта</h3>
+            <h3>«Если рядом нет взрослых, ребёнок всё равно ничего не сможет сделать»</h3>
             <div class="panels">
-              <div class="panel panel--myth"><strong>Миф</strong><p>Добавьте точную формулировку из согласованного списка.</p></div>
-              <div class="panel panel--real"><strong>Реальность</strong><p>Добавьте подтверждённый факт и короткое правильное действие.</p></div>
+              <div class="panel panel--myth">
+                <strong>Миф</strong>
+                <p>Такое убеждение мешает заранее обучать ребёнка простым и жизненно важным шагам.</p>
+              </div>
+              <div class="panel panel--real">
+                <strong>Реальность</strong>
+                <p>По материалам МЧС ребёнка можно и нужно учить базовому алгоритму: не паниковать, не прятаться, выбежать из помещения, сообщить взрослым и позвонить по телефону 101 или 112.</p>
+              </div>
             </div>
           </article>
         </div>
@@ -231,13 +305,14 @@
           </div>
           <div class="quiz-box">
             <div class="progress"><div class="progress__bar" id="progressBar"></div></div>
-            <div class="quiz-box__meta" id="questionMeta"></div>
+            <div class="quiz-box__meta" id="questionMeta" aria-live="polite"></div>
             <h3 class="quiz-box__title" id="questionText"></h3>
             <div class="quiz-box__answers">
               <button class="btn btn--primary" data-answer="yes">Да</button>
               <button class="btn btn--secondary" data-answer="no">Нет</button>
             </div>
-            <div class="quiz-result" id="quizResult"></div>
+            <div class="quiz-result" id="quizResult" role="status" aria-live="polite" aria-atomic="true"></div>
+            <button class="btn btn--secondary quiz-restart" id="quizRestart" type="button" hidden>Начать заново</button>
           </div>
         </div>
       </div>
@@ -246,28 +321,28 @@
     <section class="section" id="materials">
       <div class="container card materials-shell">
         <span class="badge">Полезные материалы</span>
-        <h2 class="section__title">Скачать шаблоны</h2>
+        <h2 class="section__title">Материалы проекта</h2>
         <p class="section__lead">
-          Структура раздела готова для родителей и школ. Кнопки скачивают базовые текстовые шаблоны.
+          На этой странице собраны готовые сценарии использования проекта для дома, школы и занятий. Откройте нужный раздел и используйте материалы сайта сразу в браузере.
         </p>
         <div class="materials-grid">
           <article class="material card-lite">
             <span class="tag tag--soft">Для дома</span>
             <h3>Чек-лист для родителей</h3>
-            <p>Короткий шаблон повторения темы дома без запугивания.</p>
-            <button class="btn btn--ghost download-btn" data-file="checklist-home">Скачать</button>
+            <p>Откройте карточки «Миф vs Реальность» и повторите с ребёнком базовый алгоритм: не прятаться, выходить на голос взрослого, не возвращаться за вещами.</p>
+            <a class="btn btn--ghost" href="#myths">Открыть карточки</a>
           </article>
           <article class="material card-lite">
             <span class="tag tag--soft">Для школы</span>
             <h3>Плакат для класса</h3>
-            <p>Макет для напоминания о карточках, квизе и спокойном объяснении темы.</p>
+            <p>Используйте слайдер мифов как визуальную опору для обсуждения на уроке или классном часу, а затем закрепите тему через короткий опрос.</p>
             <button class="btn btn--ghost download-btn" data-file="poster-school">Скачать</button>
           </article>
           <article class="material card-lite">
             <span class="tag tag--soft">Для занятия</span>
             <h3>Презентация для учителя</h3>
-            <p>Базовая последовательность проведения профилактического занятия.</p>
-            <button class="btn btn--ghost download-btn" data-file="presentation">Скачать</button>
+            <p>Постройте занятие из трёх шагов: разобрать 2–3 мифа, пройти квиз за 60 секунд и обсудить типовые вопросы из раздела помощи.</p>
+            <a class="btn btn--ghost" href="#quiz">Открыть квиз</a>
           </article>
         </div>
       </div>
@@ -275,16 +350,16 @@
 
     <section class="section" id="bot">
       <div class="container card bot-shell">
-        <span class="badge">Встроенная помощь</span>
-        <h2 class="section__title">Telegram-бот</h2>
+        <span class="badge">AI-помощник</span>
+        <h2 class="section__title">Помощник по безопасности</h2>
         <p class="section__lead">
-          Блок показывает, как сайт может отвечать на типовые вопросы родителей и педагогов.
+          Задайте любой вопрос о пожарной безопасности детей — AI отвечает мгновенно, в рамках темы проекта.
         </p>
         <div class="bot-grid">
           <article class="bot-card card-lite">
             <span class="tag tag--soft">Сценарий 1</span>
             <h3>Что делать, если ребёнок боится огня?</h3>
-            <p>Связано с мифом №7 и спокойным обсуждением темы.</p>
+            <p>Связано с мягким и спокойным обсуждением темы дома и в школе.</p>
             <button class="btn btn--secondary bot-btn" data-bot="fear">Показать ответ</button>
             <div class="bot-answer" id="answer-fear">Нажмите кнопку, чтобы показать ответ.</div>
           </article>
@@ -303,6 +378,34 @@
             <div class="bot-answer" id="answer-quiz">Нажмите кнопку, чтобы показать ответ.</div>
           </article>
         </div>
+
+        <div class="ai-chat" id="aiChat">
+          <div class="ai-chat__header">
+            <h3>🤖 AI-помощник</h3>
+            <button class="btn btn--ghost btn--sm" id="setApiKeyBtn">Указать API-ключ</button>
+          </div>
+          <div class="ai-chat__messages" id="chatMessages">
+            <div class="ai-msg ai-msg--bot">
+              <p>Привет! Задайте вопрос по пожарной безопасности детей — о мифах, правилах эвакуации или о том, как спокойно говорить с ребёнком об огне. (Нужен Anthropic API-ключ — кнопка справа вверху.)</p>
+            </div>
+          </div>
+          <div class="ai-chat__input">
+            <input type="text" id="chatInput" placeholder="Например: как объяснить ребёнку, почему нельзя прятаться?" />
+            <button class="btn btn--primary" id="chatSend">→</button>
+          </div>
+        </div>
+
+        <div class="api-key-modal" id="apiKeyModal" hidden>
+          <div class="api-key-modal__box">
+            <h3>Anthropic API-ключ</h3>
+            <p>Ключ хранится только в вашем браузере (sessionStorage) и отправляется исключительно на api.anthropic.com.</p>
+            <input type="password" id="apiKeyInput" placeholder="sk-ant-..." />
+            <div class="api-key-modal__actions">
+              <button class="btn btn--primary" id="saveApiKey">Сохранить</button>
+              <button class="btn btn--secondary" id="cancelApiKey">Отмена</button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -310,7 +413,7 @@
   <footer class="footer">
     <div class="container footer__inner">
       <span>© Мифы о пожарах: спаси ребёнка</span>
-      <span>Проект разложен на отдельные файлы index.html, style.css и script.js.</span>
+      <span>Материалы сайта адаптированы для проекта и требуют сверки с официальными инструкциями МЧС перед публикацией вне этой страницы.</span>
     </div>
   </footer>
 
