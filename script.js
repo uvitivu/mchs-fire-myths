@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
   burgerBtn?.setAttribute('aria-controls', 'mainMenu');
   if (mainMenu) mainMenu.setAttribute('aria-label', 'Основная навигация');
   if (burgerBtn && mainMenu) {
-    const menuLinks = $('#mainMenu a');
+    const menuLinks = $$('#mainMenu a');
     const closeMenu = ({ returnFocus = false } = {}) => {
       mainMenu.classList.remove('menu--open');
       burgerBtn.setAttribute('aria-expanded', 'false');
@@ -295,7 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
     slideTitle.textContent = item.title;
     slideText.textContent = item.text;
     slider?.setAttribute('aria-label', `Слайдер мифов: показан миф ${item.number} из ${myths.length}`);
-    $('#dots button').forEach((dot, index) => dot.classList.toggle('is-active', index === currentSlide));
+    $$('#dots button').forEach((dot, index) => dot.classList.toggle('is-active', index === currentSlide));
   };
 
   if (myths.length) {
@@ -492,6 +492,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const questionText = $('#questionText');
   const quizResult = $('#quizResult');
   questionText?.setAttribute('tabindex', '-1');
+  quizResult?.setAttribute('tabindex', '-1');
   const answersWrap = $('.quiz-box__answers');
   const answerButtons = $$('.quiz-box__answers [data-answer]');
   const restartBtn = $('#quizRestart');
