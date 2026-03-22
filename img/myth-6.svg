@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+    <rect width="400" height="300" fill="none"/>
+    <g transform="translate(150, 70)">
+        <circle cx="30" cy="30" r="15" fill="#a0aec0"/>
+        <path d="M15,80 C15,50 45,50 45,80" fill="#a0aec0"/>
+        <circle cx="80" cy="45" r="10" fill="#f6ad55"/>
+        <path d="M70,80 C70,60 90,60 90,80" fill="#f6ad55"/>
+        <path d="M40,50 L60,50 M55,45 L65,50 L55,55" stroke="#cbd5e0" stroke-width="4" fill="none"/>
+        <circle cx="55" cy="55" r="45" fill="none" stroke="#e53e3e" stroke-width="8"/>
+        <line x1="23" y1="23" x2="87" y2="87" stroke="#e53e3e" stroke-width="8"/>
+    </g>
+    <text x="200" y="240" font-family="sans-serif" font-size="20" fill="#fff" text-anchor="middle" font-weight="bold">Не оставлять без присмотра!</text>
+</svg>

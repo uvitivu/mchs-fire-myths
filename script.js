@@ -2,138 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
 
-  const injectEnhancementStyles = () => {
-    if ($('#runtimeEnhancements')) return;
-    const style = document.createElement('style');
-    style.id = 'runtimeEnhancements';
-    style.textContent = `
-      .menu a.is-active {
-        color: #fff;
-        background: rgba(255, 90, 31, 0.16);
-        box-shadow: inset 0 0 0 1px rgba(255, 90, 31, 0.3);
-      }
-      .skip-link {
-        position: absolute;
-        top: 12px;
-        left: 12px;
-        z-index: 200;
-        padding: 12px 16px;
-        border-radius: 12px;
-        background: #ffffff;
-        color: #10192b;
-        text-decoration: none;
-        font-weight: 700;
-        transform: translateY(-140%);
-        transition: transform .2s ease;
-      }
-      .skip-link:focus {
-        transform: translateY(0);
-      }
-      a:focus-visible,
-      button:focus-visible,
-      input:focus-visible,
-      [tabindex]:focus-visible {
-        outline: 3px solid #ffd166;
-        outline-offset: 3px;
-      }
-      .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-      }
-      .dots {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .dots button {
-        width: 10px;
-        height: 10px;
-        padding: 0;
-        border: 0;
-        border-radius: 999px;
-        background: rgba(255,255,255,0.28);
-        cursor: pointer;
-        transition: transform .2s ease, background .2s ease;
-      }
-      .dots button.is-active {
-        background: #ff5a1f;
-        transform: scale(1.18);
-      }
-      .slider { touch-action: pan-y; }
-      .quiz-box__answers[hidden],
-      .quiz-restart[hidden],
-      .api-key-modal[hidden] { display: none !important; }
-      .quiz-restart { margin-top: 16px; }
-      .quiz-result__lead { margin-top: 12px; }
-      .quiz-result__list { margin: 10px 0 0; padding-left: 20px; line-height: 1.55; }
-      .quiz-result__plan { display: grid; gap: 12px; margin-top: 16px; }
-      .quiz-result__item {
-        padding: 14px;
-        border-radius: 18px;
-        background: rgba(255,255,255,0.06);
-        border: 1px solid rgba(255,255,255,0.08);
-      }
-      .quiz-result__item p { margin: 8px 0 0; }
-      .quiz-result__eyebrow {
-        color: #ffb08a;
-        font-size: 12px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: .04em;
-      }
-      .quiz-result__title { margin: 6px 0 0; font-weight: 700; }
-      .quiz-result__links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
-      .reveal {
-        opacity: 0;
-        transform: translateY(24px);
-        transition: opacity .5s ease, transform .5s ease;
-      }
-      .reveal.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .menu.menu--open { display: flex !important; }
-      @media (min-width: 769px) {
-        .burger { display: none !important; }
-        .menu { display: flex !important; }
-      }
-      @media (max-width: 768px) {
-        .nav { position: relative; }
-        .burger {
-          display: inline-flex !important;
-          align-items: center;
-          justify-content: center;
-          gap: 4px;
-        }
-        .menu {
-          position: absolute;
-          top: calc(100% + 12px);
-          left: 0;
-          right: 0;
-          z-index: 40;
-          display: none !important;
-          flex-direction: column;
-          gap: 8px;
-          padding: 14px;
-          border-radius: 18px;
-          background: rgba(10, 16, 29, 0.98);
-          box-shadow: 0 16px 40px rgba(0,0,0,.25);
-        }
-        .menu a { width: 100%; }
-        .icon-btn { min-width: 44px; min-height: 44px; }
-      }
-    `;
-    document.head.appendChild(style);
-  };
 
-  injectEnhancementStyles();
 
   const burgerBtn = $('#burgerBtn');
   const mainMenu = $('#mainMenu');
@@ -143,12 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuLinks = $$('#mainMenu a');
     const closeMenu = ({ returnFocus = false } = {}) => {
       mainMenu.classList.remove('menu--open');
+      burgerBtn.classList.remove('open');
       burgerBtn.setAttribute('aria-expanded', 'false');
       if (returnFocus) burgerBtn.focus();
     };
 
     burgerBtn.addEventListener('click', () => {
       const isOpen = mainMenu.classList.toggle('menu--open');
+      burgerBtn.classList.toggle('open', isOpen);
       burgerBtn.setAttribute('aria-expanded', String(isOpen));
       if (isOpen) menuLinks[0]?.focus();
     });
@@ -235,31 +106,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
-  const mythsGrid = $('.cards-grid');
-  const renderMythCards = () => {
-    if (!mythsGrid) return;
-    mythsGrid.innerHTML = myths.map((item) => `
-      <article class="myth-card card" id="myth-${item.number}" data-myth="${item.number}">
-        <div class="myth-card__tags">
-          <span class="tag tag--myth">Миф ${item.number}</span>
-          <span class="tag tag--real">На основе МЧС</span>
-        </div>
-        <h3>${item.title}</h3>
-        <div class="panels">
-          <div class="panel panel--myth">
-            <strong>Миф</strong>
-            <p>${item.myth}</p>
-          </div>
-          <div class="panel panel--real">
-            <strong>Реальность</strong>
-            <p>${item.reality}</p>
-          </div>
-        </div>
-      </article>
-    `).join('');
-  };
+  const mythCards = $$('.cards-grid .myth-card');
+  if (mythCards.length) {
+    myths.length = 0;
+    mythCards.forEach((card, index) => {
+      const title = $('h3', card)?.textContent.trim() || `Миф ${index + 1}`;
+      const myth = $('.panel--myth p', card)?.textContent.trim() || '';
+      const reality = $('.panel--real p', card)?.textContent.trim() || '';
+      const numberText = $('.tag--myth', card)?.textContent.trim() || `Миф ${index + 1}`;
+      const numberMatch = numberText.match(/(\d+)/);
 
-  renderMythCards();
+      myths.push({
+        number: numberMatch ? Number(numberMatch[1]) : index + 1,
+        title,
+        myth,
+        reality,
+        text: reality || myth
+      });
+    });
+  }
 
   const slideNum = $('#slideNum');
   const slideTitle = $('#slideTitle');
@@ -280,6 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
       dot.type = 'button';
       dot.className = index === currentSlide ? 'is-active' : '';
       dot.setAttribute('aria-label', `Перейти к мифу ${item.number}`);
+      dot.setAttribute('aria-current', index === currentSlide ? 'true' : 'false');
       dot.addEventListener('click', () => {
         currentSlide = index;
         renderSlide();
@@ -294,8 +160,30 @@ document.addEventListener('DOMContentLoaded', () => {
     slideNum.textContent = `${item.number} / ${myths.length}`;
     slideTitle.textContent = item.title;
     slideText.textContent = item.text;
+    
+    const slideImg = $('#slideImg');
+    const slideImgFallback = $('#slideImgFallback');
+    if (slideImg) {
+      slideImg.src = `img/myth-${item.number}.svg`;
+      slideImg.alt = `Иллюстрация к мифу: ${item.title}`;
+      slideImg.style.display = 'block';
+      if (slideImgFallback) slideImgFallback.style.display = 'none';
+      
+      slideImg.onerror = () => {
+        slideImg.style.display = 'none';
+        if (slideImgFallback) slideImgFallback.style.display = 'block';
+      };
+      slideImg.onload = () => {
+        if (slideImgFallback) slideImgFallback.style.display = 'none';
+      };
+    }
+    
     slider?.setAttribute('aria-label', `Слайдер мифов: показан миф ${item.number} из ${myths.length}`);
-    $$('#dots button').forEach((dot, index) => dot.classList.toggle('is-active', index === currentSlide));
+    $$('#dots button').forEach((dot, index) => {
+      const isActive = index === currentSlide;
+      dot.classList.toggle('is-active', isActive);
+      dot.setAttribute('aria-current', isActive ? 'true' : 'false');
+    });
   };
 
   if (myths.length) {
@@ -345,26 +233,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const menuLinks = $$('#mainMenu a[href^="#"]');
   const sections = $$('main section[id]');
-  if (menuLinks.length && sections.length && 'IntersectionObserver' in window) {
+  
+  if (menuLinks.length && sections.length) {
     const setActiveLink = (id) => {
-      menuLinks.forEach((link) => link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`));
+      menuLinks.forEach((link) => {
+        link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
+      });
     };
 
-    const sectionObserver = new IntersectionObserver((entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-      if (visible[0]) setActiveLink(visible[0].target.id);
-    }, {
-      threshold: [0.2, 0.4, 0.6],
-      rootMargin: '-35% 0px -45% 0px'
-    });
+    const updateNav = () => {
+      const scrollY = window.scrollY;
+      const headerOffset = 100; // Account for fixed header
 
-    sections.forEach((section) => sectionObserver.observe(section));
-    setActiveLink((window.location.hash || '#myths').slice(1));
+      let currentId = sections[0].id;
+      
+      for (const section of sections) {
+        const sectionTop = section.offsetTop - headerOffset;
+        if (scrollY >= sectionTop) {
+          currentId = section.id;
+        }
+      }
+      
+      // Handle reaching the bottom of the page perfectly
+      if (window.innerHeight + scrollY >= document.body.offsetHeight - 50) {
+        currentId = sections[sections.length - 1].id;
+      }
+      
+      setActiveLink(currentId);
+    };
+
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav(); // Initial call
+    
+    // Ensure correct active state immediately on click
+    menuLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        const id = link.getAttribute('href').slice(1);
+        setActiveLink(id);
+      });
+    });
   }
 
-  const revealTargets = $$('.myth-card, .material, .bot-card, .quiz-info, .quiz-box, .hero__content, .slider, .notice, .ai-chat');
+  const revealTargets = $$('.myth-card, .material, .bot-card, .quiz-info, .quiz-box, .hero__content, .slider, .notice, .telegram-bot');
   if (revealTargets.length && 'IntersectionObserver' in window) {
     revealTargets.forEach((item) => item.classList.add('reveal'));
     const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -578,119 +488,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderQuestion();
   }
 
-  const materials = [
-    {
-      slug: 'home-checklist',
-      tag: 'Для дома',
-      title: 'Чек-лист для родителей',
-      description: 'Откройте карточки «Миф vs Реальность» и повторите с ребёнком базовый алгоритм: не прятаться, выходить на голос взрослого, не возвращаться за вещами.',
-      actionType: 'link',
-      actionText: 'Открыть карточки',
-      actionHref: '#myths'
-    },
-    {
-      slug: 'class-poster',
-      tag: 'Для школы',
-      title: 'Плакат для класса',
-      description: 'Используйте слайдер мифов как визуальную опору для обсуждения на уроке или классном часу, а затем закрепите тему через короткий опрос.',
-      actionType: 'download',
-      actionText: 'Скачать',
-      fileKey: 'poster-school',
-      download: {
-        filename: 'poster-school.html',
-        title: 'Плакат для класса',
-        description: 'Макет для напоминания о карточках, квизе и спокойном объяснении темы.',
-        items: [
-          'Покажите детям путь выхода и проговорите действия без паники.',
-          'Напомните, что при дыме нельзя оставаться в помещении, даже если кажется, что опасность маленькая.',
-          'Повторяйте маршрут и порядок действий регулярно, а не только перед проверкой.'
-        ]
-      }
-    },
-    {
-      slug: 'lesson-presentation',
-      tag: 'Для занятия',
-      title: 'Презентация для учителя',
-      description: 'Постройте занятие из трёх шагов: разобрать 2–3 мифа, пройти квиз за 60 секунд и обсудить типовые вопросы из раздела помощи.',
-      actionType: 'link',
-      actionText: 'Открыть квиз',
-      actionHref: '#quiz'
-    }
-  ];
-
-  const materialsGrid = $('.materials-grid');
-  if (materialsGrid) {
-    materialsGrid.innerHTML = materials.map((item) => `
-      <article class="material card-lite" id="material-${item.slug}">
-        <span class="tag tag--soft">${item.tag}</span>
-        <h3>${item.title}</h3>
-        <p>${item.description}</p>
-        ${item.actionType === 'download'
-          ? `<button class="btn btn--ghost download-btn" data-file="${item.fileKey}">${item.actionText}</button>`
-          : `<a class="btn btn--ghost" href="${item.actionHref}">${item.actionText}</a>`}
-      </article>
-    `).join('');
-  }
-
-  const materialPages = Object.fromEntries(
-    materials
-      .filter((item) => item.download && item.fileKey)
-      .map((item) => [item.fileKey, item.download])
-  );
-
-  const buildMaterialHTML = ({ title, description, items }) => `<!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${title}</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; background: #f5f7fb; color: #162033; }
-    .page { max-width: 860px; margin: 0 auto; padding: 32px 20px 48px; }
-    .sheet { background: #fff; border-radius: 20px; padding: 28px; box-shadow: 0 18px 50px rgba(16,24,40,.08); }
-    .badge { display: inline-block; padding: 6px 12px; border-radius: 999px; background: #fff0ea; color: #b44516; font-weight: 700; font-size: 14px; }
-    h1 { margin: 16px 0 8px; font-size: 32px; line-height: 1.15; }
-    p, ul { line-height: 1.65; }
-    .note { margin-top: 24px; padding: 16px; border-radius: 16px; background: #f2f6ff; }
-    .actions { margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; }
-    .btn { display: inline-block; padding: 12px 18px; border-radius: 12px; background: #ff5a1f; color: #fff; text-decoration: none; font-weight: 700; }
-    .ghost { background: #eef2f7; color: #162033; }
-    @media print { body { background: #fff; } .page { padding: 0; } .sheet { box-shadow: none; border-radius: 0; } .actions { display: none; } }
-  </style>
-</head>
-<body>
-  <main class="page">
-    <section class="sheet">
-      <span class="badge">Материал проекта</span>
-      <h1>${title}</h1>
-      <p>${description}</p>
-      <ul>${items.map((item) => `<li>${item}</li>`).join('')}</ul>
-      <div class="note">Если вопрос выходит за рамки этого шаблона, сверяйтесь с разделом «Миф vs Реальность» и официальной инструкцией МЧС.</div>
-      <div class="actions">
-        <a class="btn" href="index.html#materials">Вернуться к материалам</a>
-        <a class="btn ghost" href="javascript:window.print()">Печать / PDF</a>
-      </div>
-    </section>
-  </main>
-</body>
-</html>`;
-
-  $$('.download-btn').forEach((button) => {
-    const data = materialPages[button.dataset.file];
-    if (!data) return;
-    button.addEventListener('click', () => {
-      const blob = new Blob([buildMaterialHTML(data)], { type: 'text/html;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = data.filename;
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
-    });
-  });
-
   const botAnswers = {
     fear: 'Связано с мягким обсуждением темы. Начните с коротких спокойных разговоров без запугивания, используйте карточки сайта и повторяйте понятный алгоритм: выйти, позвать взрослых, позвонить 101 или 112.',
     plan: 'План эвакуации — это не картинка на стене. Покажите ребёнку маршрут, объясните последовательность действий и повторяйте её регулярно дома, в школе или в детском саду.',
@@ -720,95 +517,4 @@ document.addEventListener('DOMContentLoaded', () => {
     const match = localKnowledge.find((item) => item.keys.some((key) => normalized.includes(key)));
     return match ? match.answer : outOfScope;
   };
-
-  const chatMessages = $('#chatMessages');
-  const chatInput = $('#chatInput');
-  const chatSend = $('#chatSend');
-  const setApiKeyBtn = $('#setApiKeyBtn');
-  const apiKeyModal = $('#apiKeyModal');
-  const apiKeyInput = $('#apiKeyInput');
-  const saveApiKey = $('#saveApiKey');
-  const cancelApiKey = $('#cancelApiKey');
-
-  const appendMessage = (text, role = 'bot') => {
-    if (!chatMessages) return;
-    const wrapper = document.createElement('div');
-    wrapper.className = `ai-msg ai-msg--${role}`;
-    const paragraph = document.createElement('p');
-    paragraph.textContent = text;
-    wrapper.appendChild(paragraph);
-    chatMessages.appendChild(wrapper);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  };
-
-  const openModal = () => {
-    if (!apiKeyModal) return;
-    apiKeyModal.hidden = false;
-    apiKeyInput?.focus();
-  };
-
-  const closeModal = () => {
-    if (apiKeyModal) apiKeyModal.hidden = true;
-  };
-
-  setApiKeyBtn?.addEventListener('click', openModal);
-  cancelApiKey?.addEventListener('click', closeModal);
-  saveApiKey?.addEventListener('click', () => {
-    const key = apiKeyInput?.value.trim();
-    if (!key) return;
-    sessionStorage.setItem('anthropic_api_key', key);
-    closeModal();
-    appendMessage('API-ключ сохранён в браузере на текущую сессию.', 'bot');
-  });
-
-  const askAnthropic = async (question, apiKey) => {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01'
-      },
-      body: JSON.stringify({
-        model: 'claude-3-5-sonnet-latest',
-        max_tokens: 500,
-        system: 'Ты помогаешь только в рамках проекта «Мифы о пожарах: спаси ребёнка». Отвечай спокойно, дружелюбно, только на основе карточек, квиза и материалов сайта. Если вопрос вне проекта, прямо скажи: «Это не охвачено нашим материалом — проверьте раздел «Миф vs Реальность» или инструкцию МЧС».',
-        messages: [{ role: 'user', content: question }]
-      })
-    });
-
-    if (!response.ok) throw new Error('api_error');
-    const data = await response.json();
-    return data?.content?.map((part) => part.text).join('\n').trim() || answerFromProject(question);
-  };
-
-  const sendChatQuestion = async () => {
-    const question = chatInput?.value.trim();
-    if (!question) return;
-    appendMessage(question, 'user');
-    if (chatInput) chatInput.value = '';
-
-    const apiKey = sessionStorage.getItem('anthropic_api_key');
-    if (!apiKey) {
-      appendMessage(`${answerFromProject(question)} Чтобы подключить живой AI-режим, укажите Anthropic API-ключ.`, 'bot');
-      return;
-    }
-
-    appendMessage('Формирую ответ...', 'bot');
-    const typingMessage = chatMessages?.lastElementChild;
-
-    try {
-      const answer = await askAnthropic(question, apiKey);
-      if (typingMessage) typingMessage.remove();
-      appendMessage(answer, 'bot');
-    } catch (error) {
-      if (typingMessage) typingMessage.remove();
-      appendMessage(`${answerFromProject(question)} AI-ответ сейчас недоступен, поэтому показан встроенный ответ по материалам проекта.`, 'bot');
-    }
-  };
-
-  chatSend?.addEventListener('click', sendChatQuestion);
-  chatInput?.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') sendChatQuestion();
-  });
 });

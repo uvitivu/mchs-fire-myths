@@ -12,6 +12,11 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Мифы о пожарах: спаси ребёнка" />
   <meta name="twitter:description" content="10 опасных мифов о детской гибели при пожарах. Квиз за 60 секунд." />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="canonical" href="./" />
+  <meta property="og:image" content="img/myth-1.svg" />
+  <meta name="twitter:image" content="img/myth-1.svg" />
+  <link rel="icon" href="img/myth-1.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -19,16 +24,20 @@
   <header class="header">
     <div class="container nav">
       <a class="brand" href="#home">
-        <span class="brand__icon">🔥</span>
+        <span class="brand__icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </span>
         <span class="brand__text">Мифы о пожарах: спаси ребёнка</span>
       </a>
       <nav class="menu" id="mainMenu">
         <a href="#myths">Миф vs Реальность</a>
         <a href="#quiz">Квиз</a>
         <a href="#materials">Материалы</a>
-        <a href="#bot">Помощник</a>
+        <a href="#bot">Ситуации</a>
       </nav>
-      <button class="burger" id="burgerBtn" aria-label="Меню" aria-expanded="false">
+      <button class="burger" id="burgerBtn" aria-label="Меню" aria-expanded="false" aria-controls="mainMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -42,7 +51,7 @@
           <h1>Опасные мифы — в понятные действия для родителей и педагогов.</h1>
           <p>
             Сайт помогает спокойно объяснять ребёнку тему пожара, проверять готовность за 60 секунд
-            и использовать материалы дома, в школе и в детском саду.
+            и использовать материалы дома и на занятиях.
           </p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="#quiz">Пройти квиз</a>
@@ -53,6 +62,9 @@
             <div class="stat"><strong>10</strong><span>карточек сайта</span></div>
             <div class="stat"><strong>60 сек</strong><span>быстрый самотест</span></div>
           </div>
+          <p class="hero__note">
+            Начните с карточек «Миф vs Реальность», затем пройдите квиз и закрепите тему готовыми материалами для дома и занятий.
+          </p>
         </div>
 
         <aside class="card slider" aria-label="Слайдер мифов">
@@ -64,18 +76,22 @@
             </div>
           </div>
           <div class="slider__body" id="slideBox" role="status" aria-live="polite" aria-atomic="true">
-            <div class="slider__counter" id="slideNum"></div>
-            <h3 id="slideTitle"></h3>
-            <p id="slideText"></p>
+            <div class="slider__counter" id="slideNum">1 / 10</div>
+            <h3 id="slideTitle">«Если начался пожар, ребёнку лучше спрятаться под кроватью или в шкафу»</h3>
+            <p id="slideText">Нельзя прятаться в задымлённом помещении: ребёнка нужно учить сразу выходить и реагировать на голос взрослого.</p>
+            <div class="slider__img-wrapper">
+              <img id="slideImg" src="img/myth-1.svg" alt="Иллюстрация к мифу 1: ребёнка нужно учить сразу выходить и реагировать на голос взрослого" class="slider__img">
+              <span id="slideImgFallback" class="slider__img-fallback" hidden>Иллюстрация временно недоступна</span>
+            </div>
+            <div class="dots" id="dots"></div>
           </div>
-          <div class="dots" id="dots"></div>
         </aside>
       </div>
     </section>
 
     <section class="section" id="myths">
       <div class="container">
-        <span class="badge">Раздел сайта</span>
+        <span class="badge">Карточки проекта</span>
         <h2 class="section__title">Миф vs Реальность</h2>
         <p class="section__lead">
           Карточки ниже заполнены на основе рекомендаций МЧС Беларуси по действиям детей и взрослых при пожаре.
@@ -91,7 +107,7 @@
         </div>
 
         <div class="notice">
-          <strong>Дата актуализации раздела:</strong> 20.03.2026. Ссылки выше использованы как официальная база, с которой нужно сверять памятки, публикации, занятия и сценарии обсуждения с детьми.
+          <strong>Актуализация раздела:</strong> перед публикацией и использованием на занятиях сверяйте ссылки и формулировки с официальными материалами МЧС, указанными выше.
         </div>
 
         <div class="notice">
@@ -330,13 +346,14 @@
             <span class="tag tag--soft">Для дома</span>
             <h3>Чек-лист для родителей</h3>
             <p>Откройте карточки «Миф vs Реальность» и повторите с ребёнком базовый алгоритм: не прятаться, выходить на голос взрослого, не возвращаться за вещами.</p>
-            <a class="btn btn--ghost" href="#myths">Открыть карточки</a>
+            <a href="materials/checklist-parents.pdf" class="btn btn--ghost" download>Скачать чек-лист (PDF)</a>
+            <a class="btn btn--ghost btn--spaced" href="#myths">Открыть карточки</a>
           </article>
           <article class="material card-lite">
             <span class="tag tag--soft">Для школы</span>
-            <h3>Плакат для класса</h3>
+            <h3>Карточки для обсуждения</h3>
             <p>Используйте слайдер мифов как визуальную опору для обсуждения на уроке или классном часу, а затем закрепите тему через короткий опрос.</p>
-            <button class="btn btn--ghost download-btn" data-file="poster-school">Скачать</button>
+            <a href="#myths" class="btn btn--ghost">Открыть карточки проекта</a>
           </article>
           <article class="material card-lite">
             <span class="tag tag--soft">Для занятия</span>
@@ -350,10 +367,10 @@
 
     <section class="section" id="bot">
       <div class="container card bot-shell">
-        <span class="badge">AI-помощник</span>
-        <h2 class="section__title">Помощник по безопасности</h2>
+        <span class="badge">Вопросы родителей и педагогов</span>
+        <h2 class="section__title">Типовые ситуации</h2>
         <p class="section__lead">
-          Задайте любой вопрос о пожарной безопасности детей — AI отвечает мгновенно, в рамках темы проекта.
+          Здесь собраны короткие ответы по теме проекта для родителей, учителей и воспитателей.
         </p>
         <div class="bot-grid">
           <article class="bot-card card-lite">
@@ -377,34 +394,6 @@
             <button class="btn btn--secondary bot-btn" data-bot="quiz">Показать ответ</button>
             <div class="bot-answer" id="answer-quiz">Нажмите кнопку, чтобы показать ответ.</div>
           </article>
-        </div>
-
-        <div class="ai-chat" id="aiChat">
-          <div class="ai-chat__header">
-            <h3>🤖 AI-помощник</h3>
-            <button class="btn btn--ghost btn--sm" id="setApiKeyBtn">Указать API-ключ</button>
-          </div>
-          <div class="ai-chat__messages" id="chatMessages">
-            <div class="ai-msg ai-msg--bot">
-              <p>Привет! Задайте вопрос по пожарной безопасности детей — о мифах, правилах эвакуации или о том, как спокойно говорить с ребёнком об огне. (Нужен Anthropic API-ключ — кнопка справа вверху.)</p>
-            </div>
-          </div>
-          <div class="ai-chat__input">
-            <input type="text" id="chatInput" placeholder="Например: как объяснить ребёнку, почему нельзя прятаться?" />
-            <button class="btn btn--primary" id="chatSend">→</button>
-          </div>
-        </div>
-
-        <div class="api-key-modal" id="apiKeyModal" hidden>
-          <div class="api-key-modal__box">
-            <h3>Anthropic API-ключ</h3>
-            <p>Ключ хранится только в вашем браузере (sessionStorage) и отправляется исключительно на api.anthropic.com.</p>
-            <input type="password" id="apiKeyInput" placeholder="sk-ant-..." />
-            <div class="api-key-modal__actions">
-              <button class="btn btn--primary" id="saveApiKey">Сохранить</button>
-              <button class="btn btn--secondary" id="cancelApiKey">Отмена</button>
-            </div>
-          </div>
         </div>
       </div>
     </section>

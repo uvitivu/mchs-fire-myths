@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+    <rect width="400" height="300" fill="none"/>
+    <g transform="translate(150, 70)">
+        <rect x="30" y="30" width="40" height="60" fill="#dd6b20" rx="4"/>
+        <rect x="35" y="40" width="30" height="20" fill="#feebc8"/>
+        <line x1="80" y1="70" x2="90" y2="40" stroke="#fbd38d" stroke-width="3"/>
+        <circle cx="92" cy="38" r="4" fill="#c53030"/>
+        <circle cx="55" cy="60" r="50" fill="none" stroke="#e53e3e" stroke-width="8"/>
+        <line x1="20" y1="25" x2="90" y2="95" stroke="#e53e3e" stroke-width="8"/>
+    </g>
+    <text x="200" y="240" font-family="sans-serif" font-size="20" fill="#fff" text-anchor="middle" font-weight="bold">Спички — не игрушка!</text>
+</svg>
