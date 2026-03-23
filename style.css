@@ -651,7 +651,12 @@ input:focus-visible,
   text-align: center;
 }
 
-.btn--spaced { margin-left: 8px; }
+.material__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
 
 .quiz-restart {
   margin-top: 24px;
