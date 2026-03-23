@@ -10,3 +10,6 @@
 
 # Optional local assets
 Thumbs.db
+
+# Temp scripts
+*.py
