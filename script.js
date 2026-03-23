@@ -314,7 +314,8 @@ document.addEventListener('DOMContentLoaded', () => {
         teacherAction: 'В классе или группе используйте плакат как опору и повторите порядок действий по плану эвакуации без спешки и паники.'
       },
       {
-        question: 'Ребёнок понимает, что при дыме нужно сразу выходить, а не ждать внутри?',
+        question: 'Ребёнок считает, что при небольшом дыме можно немного подождать внутри?',
+        correct: 'no',
         mythNumber: 2,
         materialTitle: 'Чек-лист для родителей',
         materialHref: '#material-home-checklist',
@@ -332,7 +333,8 @@ document.addEventListener('DOMContentLoaded', () => {
         teacherAction: 'На занятии включите короткую речевую тренировку: кто звонит, какой адрес, где пожар и почему сначала нужно выйти в безопасное место.'
       },
       {
-        question: 'Ребёнок сможет назвать свой адрес или место, где произошёл пожар?',
+        question: 'Ребёнку достаточно знать только номер 101 — остальное он сам сообразит?',
+        correct: 'no',
         mythNumber: 5,
         materialTitle: 'Чек-лист для родителей',
         materialHref: '#material-home-checklist',
@@ -350,7 +352,8 @@ document.addEventListener('DOMContentLoaded', () => {
         teacherAction: 'Для педагогов полезно коротко напоминать, что одной беседы недостаточно: безопасная среда и контроль важнее разового объяснения.'
       },
       {
-        question: 'Ребёнку запрещено самостоятельно пользоваться плитой, печью и опасными электроприборами?',
+        question: 'Ребёнок может самостоятельно пользоваться плитой или печью, если он аккуратный?',
+        correct: 'no',
         mythNumber: 8,
         materialTitle: 'Чек-лист для родителей',
         materialHref: '#material-home-checklist',
@@ -377,7 +380,8 @@ document.addEventListener('DOMContentLoaded', () => {
         teacherAction: 'В классе или группе повторите с детьми базовый алгоритм действий после выхода и попросите их назвать его по шагам.'
       },
       {
-        question: 'Вы регулярно повторяете эти правила дома, в школе или в детском саду?',
+        question: 'Одного разговора о правилах безопасности достаточно — повторять не нужно?',
+        correct: 'no',
         mythNumber: 9,
         materialTitle: 'Плакат для класса',
         materialHref: '#material-class-poster',
@@ -470,7 +474,8 @@ document.addEventListener('DOMContentLoaded', () => {
     answerButtons.forEach((button) => {
       button.addEventListener('click', () => {
         if (currentQuestion >= quizQuestions.length) return;
-        if (button.dataset.answer === 'yes') {
+        const correct = quizQuestions[currentQuestion].correct ?? 'yes';
+        if (button.dataset.answer === correct) {
           positiveAnswers += 1;
         } else {
           missedItems.push(quizQuestions[currentQuestion]);
