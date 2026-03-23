@@ -491,7 +491,8 @@ input:focus-visible,
   display: flex;
   flex-direction: column;
 }
-.bot-card p {
+.bot-card p,
+.material p {
   flex: 1;
 }
 .telegram-bot {
