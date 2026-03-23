@@ -513,7 +513,6 @@ input:focus-visible,
 .bot-card p { margin: 0 0 16px; color: var(--muted); }
 .bot-answer {
   margin-top: 14px;
-  min-height: 110px;
   padding: 14px;
   border-radius: 16px;
   background: #fff7f3;
