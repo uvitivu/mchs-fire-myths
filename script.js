@@ -452,6 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
         progressBar.style.width = '100%';
         answersWrap.hidden = true;
         quizResult.innerHTML = `<p><strong>${positiveAnswers}</strong> положительных ответов из ${quizQuestions.length}.</p>${checklist}`;
+        quizResult.classList.add('show');
         quizResult.focus?.();
         restartControl.hidden = false;
         return;
@@ -462,11 +463,13 @@ document.addEventListener('DOMContentLoaded', () => {
       progressBar.style.width = `${(currentQuestion / quizQuestions.length) * 100}%`;
       answersWrap.hidden = false;
       quizResult.innerHTML = '';
+      quizResult.classList.remove('show');
       restartControl.hidden = true;
     };
 
     answerButtons.forEach((button) => {
       button.addEventListener('click', () => {
+        if (currentQuestion >= quizQuestions.length) return;
         if (button.dataset.answer === 'yes') {
           positiveAnswers += 1;
         } else {
@@ -498,7 +501,7 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', () => {
       const key = button.dataset.bot;
       const target = $(`#answer-${key}`);
-      if (target && botAnswers[key]) target.textContent = botAnswers[key];
+      if (target && botAnswers[key]) { target.hidden = false; target.textContent = botAnswers[key]; }
     });
   });
 });
