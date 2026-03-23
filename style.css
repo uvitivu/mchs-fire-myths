@@ -668,6 +668,10 @@ input:focus-visible,
 }
 
 /* ── Video section ───────────────────────────── */
+#videos .container {
+  padding: 2.5rem;
+}
+
 .videos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
