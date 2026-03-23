@@ -488,6 +488,11 @@ input:focus-visible,
 .bot-card {
   padding: 22px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.bot-card p {
+  flex: 1;
 }
 .telegram-bot {
   margin-top: 24px;
