@@ -677,8 +677,8 @@ input:focus-visible,
 
 .video-wrap {
   margin: 0;
-  background: var(--surface, #ffffff);
-  border: 1px solid var(--border, #e2e8f0);
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 16px;
   overflow: hidden;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -713,6 +713,6 @@ input:focus-visible,
   font-size: 0.95rem;
   color: var(--muted, #64748b);
   line-height: 1.5;
-  border-top: 1px solid var(--border, #e2e8f0);
+  border-top: 1px solid var(--line);
   margin-top: 0;
 }
