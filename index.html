@@ -38,7 +38,7 @@
         <a href="#myths">Миф vs Реальность</a>
         <a href="#quiz">Квиз</a>
         <a href="#materials">Материалы</a>
-        <a href="#bot">Ситуации</a>
+        <a href="#bot">Вопросы</a>
       </nav>
       <button class="burger" id="burgerBtn" aria-label="Меню" aria-expanded="false" aria-controls="mainMenu">
         <span></span><span></span><span></span>
@@ -51,13 +51,12 @@
       <div class="container hero__grid">
         <div class="hero__content card glass">
           <span class="badge">Профилактика детской гибели на пожарах</span>
-          <h1>Опасные мифы — в понятные действия для родителей и педагогов.</h1>
+          <h1>Разбираем мифы о пожарах и показываем ребёнку понятный план действий.</h1>
           <p>
-            Сайт помогает спокойно объяснять ребёнку тему пожара, проверять готовность за 60 секунд
-            и использовать материалы дома и на занятиях.
+            Проект «Мифы о пожарах: спаси ребёнка» создан для родителей, учителей и воспитателей. На сайте — 10 мифов о детской гибели при пожарах, понятные объяснения и готовые материалы для занятий.
           </p>
           <div class="hero__actions">
-            <a class="btn btn--primary" href="#quiz">Пройти квиз</a>
+            <a class="btn btn--primary" href="#myths">Начать с мифов</a>
             <a class="btn btn--secondary" href="#materials">Открыть материалы</a>
           </div>
           <div class="stats">
@@ -97,32 +96,20 @@
         <span class="badge">Карточки проекта</span>
         <h2 class="section__title">Миф vs Реальность</h2>
         <p class="section__lead">
-          Карточки ниже заполнены на основе рекомендаций МЧС Беларуси по действиям детей и взрослых при пожаре.
-          Формулировки мифов сделаны в редакционном формате, а правильные действия основаны на официальных памятках и материалах МЧС.
+          Карточки ниже опираются на рекомендации МЧС Беларуси по действиям детей и взрослых при пожаре.
+          Формулировки мифов сделаны в редакционной форме, а правильные действия — на основе официальных памяток и материалов МЧС.
         </p>
 
         <div class="notice">
-          <strong>Официальные материалы МЧС:</strong>
-          <a href="https://mchs.gov.by/upload/iblock/b86/4parents.pdf" target="_blank" rel="noopener noreferrer">памятка для родителей «Безопасность ваших детей»</a>,
-          <a href="https://mchs.gov.by/multimediynye-materialy-obzh/naglyadno-izobrazitelnaya-produktsiya/pamyatki-i-buklety/" target="_blank" rel="noopener noreferrer">раздел «Памятки и буклеты»</a>
-          и
-          <a href="https://minobl.mchs.gov.by/novosti/291581/" target="_blank" rel="noopener noreferrer">пояснение МЧС о номере 112</a>.
-        </div>
-
-        <div class="notice">
-          <strong>Актуализация раздела:</strong> перед публикацией и использованием на занятиях сверяйте ссылки и формулировки с официальными материалами МЧС, указанными выше.
-        </div>
-
-        <div class="notice">
-          <strong>Редакционная адаптация:</strong> заголовки мифов, краткие формулировки, структура карточек и поясняющие примеры на этой странице адаптированы для проекта в понятной редакционной форме. Для точных формулировок, официальных алгоритмов действий и использования в инструктажах опирайтесь на материалы МЧС по ссылкам выше.
-        </div>
-
-        <div class="notice">
-          Если вопрос выходит за рамки этих карточек, сверяйтесь с официальными инструкциями МЧС. Медицинские вопросы о сильном страхе и тревоге у ребёнка лучше обсуждать с педиатром или профильным специалистом.
+          <strong>Важно:</strong> карточки адаптированы для проекта. Перед инструктажами или публикацией сверяйте с официальными документами МЧС:
+          <a href="https://mchs.gov.by/upload/iblock/b86/4parents.pdf" target="_blank" rel="noopener noreferrer">памятка «Безопасность ваших детей»</a>,
+          <a href="https://mchs.gov.by/multimediynye-materialy-obzh/naglyadno-izobrazitelnaya-produktsiya/pamyatki-i-buklety/" target="_blank" rel="noopener noreferrer">памятки и буклеты</a>,
+          <a href="https://minobl.mchs.gov.by/novosti/291581/" target="_blank" rel="noopener noreferrer">пояснение о номере 112</a>.
+          Медицинские вопросы о страхе или тревоге ребёнка — к педиатру или специалисту.
         </div>
 
         <div class="cards-grid">
-          <article class="myth-card card">
+          <article class="myth-card card" id="myth-1">
             <div class="myth-card__tags">
               <span class="tag tag--myth">Миф 1</span>
               <span class="tag tag--real">На основе МЧС</span>
@@ -140,7 +127,7 @@
             </div>
           </article>
 
-          <article class="myth-card card">
+          <article class="myth-card card" id="myth-2">
             <div class="myth-card__tags">
               <span class="tag tag--myth">Миф 2</span>
               <span class="tag tag--real">На основе МЧС</span>
@@ -158,7 +145,7 @@
             </div>
           </article>
 
-          <article class="myth-card card">
+          <article class="myth-card card" id="myth-3">
             <div class="myth-card__tags">
               <span class="tag tag--myth">Миф 3</span>
               <span class="tag tag--real">На основе МЧС</span>
@@ -176,7 +163,7 @@
             </div>
           </article>
 
-          <article class="myth-card card">
+          <article class="myth-card card" id="myth-4">
             <div class="myth-card__tags">
               <span class="tag tag--myth">Миф 4</span>
               <span class="tag tag--real">На основе МЧС</span>
@@ -194,7 +181,7 @@
             </div>
           </article>
 
-          <article class="myth-card card">
+          <article class="myth-card card" id="myth-5">
             <div class="myth-card__tags">
               <span class="tag tag--myth">Миф 5</span>
               <span class="tag tag--real">На основе МЧС</span>
@@ -212,7 +199,7 @@
             </div>
           </article>
 
-          <article class="myth-card card">
+          <article class="myth-card card" id="myth-6">
             <div class="myth-card__tags">
               <span class="tag tag--myth">Миф 6</span>
               <span class="tag tag--real">На основе МЧС</span>
@@ -230,7 +217,7 @@
             </div>
           </article>
 
-          <article class="myth-card card">
+          <article class="myth-card card" id="myth-7">
             <div class="myth-card__tags">
               <span class="tag tag--myth">Миф 7</span>
               <span class="tag tag--real">На основе МЧС</span>
@@ -248,7 +235,7 @@
             </div>
           </article>
 
-          <article class="myth-card card">
+          <article class="myth-card card" id="myth-8">
             <div class="myth-card__tags">
               <span class="tag tag--myth">Миф 8</span>
               <span class="tag tag--real">На основе МЧС</span>
@@ -266,7 +253,7 @@
             </div>
           </article>
 
-          <article class="myth-card card">
+          <article class="myth-card card" id="myth-9">
             <div class="myth-card__tags">
               <span class="tag tag--myth">Миф 9</span>
               <span class="tag tag--real">На основе МЧС</span>
@@ -284,7 +271,7 @@
             </div>
           </article>
 
-          <article class="myth-card card">
+          <article class="myth-card card" id="myth-10">
             <div class="myth-card__tags">
               <span class="tag tag--myth">Миф 10</span>
               <span class="tag tag--real">На основе МЧС</span>
@@ -305,6 +292,47 @@
       </div>
     </section>
 
+    <section class="section" id="videos">
+      <div class="container card">
+        <span class="badge">Видео МЧС Беларуси</span>
+        <h2 class="section__title">Как это выглядит на практике</h2>
+        <p class="section__lead">
+          Реальные видео от МЧС Беларуси: эксперимент с эвакуацией в торговом центре и инструкция по плану эвакуации.
+        </p>
+        <div class="videos-grid">
+          <figure class="video-wrap">
+            <div class="video-wrap__ratio">
+              <iframe
+                src="https://www.youtube.com/embed/Evtu5HyahUg"
+                title="Проект 112 | Эвакуация — МЧС Беларуси"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy">
+              </iframe>
+            </div>
+            <figcaption>МЧС включили сигнализацию в ТЦ и сняли, как люди реагируют на тревогу. Эксперимент «Проект 112», 2025.</figcaption>
+          </figure>
+          <figure class="video-wrap">
+            <div class="video-wrap__ratio">
+              <iframe
+                src="https://www.youtube.com/embed/AUnzeJwJHsM"
+                title="Не оставляйте детей одних — фильм МЧС Беларуси"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy">
+              </iframe>
+            </div>
+            <figcaption>Официальный фильм МЧС о проблеме детской гибели при пожарах. Не оставляйте детей одних, 2021.</figcaption>
+          </figure>
+        </div>
+        <p style="margin-top: 1.25rem; font-size: 0.875rem; color: var(--muted, #64748b)">
+          Официальный YouTube-канал:
+          <a href="https://www.youtube.com/@MchsGovBy112/videos" target="_blank" rel="noopener noreferrer">МЧС Беларуси</a> ·
+          <a href="https://www.youtube.com/@rescue101MINSK/featured" target="_blank" rel="noopener noreferrer">МЧС Минск</a>
+        </p>
+      </div>
+    </section>
+
     <section class="section" id="quiz">
       <div class="container card quiz-shell">
         <span class="badge">Интерактив</span>
@@ -316,10 +344,10 @@
           <div class="quiz-info">
             <h3>Что оценивает квиз</h3>
             <ul>
-              <li>Есть ли спокойный разговорный сценарий со взрослым.</li>
-              <li>Понимает ли ребёнок, что нельзя прятаться.</li>
-              <li>Знает ли ребёнок, что нужно реагировать на голос.</li>
-              <li>Используются ли материалы сайта регулярно.</li>
+              <li>Знает ли ребёнок, что нельзя прятаться — нужно сразу выходить.</li>
+              <li>Умеет ли позвонить 101 или 112 и назвать свой адрес.</li>
+              <li>Обсуждалась ли тема пожарной безопасности дома или в классе.</li>
+              <li>Знает ли ребёнок план эвакуации и точку сбора семьи.</li>
             </ul>
           </div>
           <div class="quiz-box">
@@ -342,10 +370,10 @@
         <span class="badge">Полезные материалы</span>
         <h2 class="section__title">Материалы проекта</h2>
         <p class="section__lead">
-          На этой странице собраны готовые сценарии использования проекта для дома, школы и занятий. Откройте нужный раздел и используйте материалы сайта сразу в браузере.
+          Готовые материалы для дома, школы и занятий — скачайте PDF или сразу откройте нужный раздел сайта.
         </p>
         <div class="materials-grid">
-          <article class="material card-lite">
+          <article class="material card-lite" id="material-home-checklist">
             <span class="tag tag--soft">Для дома</span>
             <h3>Чек-лист для родителей</h3>
             <p>Откройте карточки «Миф vs Реальность» и повторите с ребёнком базовый алгоритм: не прятаться, выходить на голос взрослого, не возвращаться за вещами.</p>
@@ -354,17 +382,23 @@
               <a class="btn btn--ghost" href="#myths">Открыть карточки</a>
             </div>
           </article>
-          <article class="material card-lite">
+          <article class="material card-lite" id="material-class-poster">
             <span class="tag tag--soft">Для школы</span>
-            <h3>Карточки для обсуждения</h3>
-            <p>Используйте слайдер мифов как визуальную опору для обсуждения на уроке или классном часу, а затем закрепите тему через короткий опрос.</p>
-            <a href="#myths" class="btn btn--ghost">Открыть карточки проекта</a>
+            <h3>Плакат для класса</h3>
+            <p>Распечатайте плакат и повесьте в классе или группе как постоянное напоминание о правилах. Используйте карточки как визуальную опору для обсуждения на уроке.</p>
+            <div class="material__actions">
+              <a href="materials/poster-school.pdf" class="btn btn--ghost" download>Скачать плакат (PDF)</a>
+              <a href="#myths" class="btn btn--ghost">Открыть карточки</a>
+            </div>
           </article>
-          <article class="material card-lite">
+          <article class="material card-lite" id="material-lesson-presentation">
             <span class="tag tag--soft">Для занятия</span>
             <h3>Презентация для учителя</h3>
             <p>Постройте занятие из трёх шагов: разобрать 2–3 мифа, пройти квиз за 60 секунд и обсудить типовые вопросы из раздела помощи.</p>
-            <a class="btn btn--ghost" href="#quiz">Открыть квиз</a>
+            <div class="material__actions">
+              <a class="btn btn--ghost" href="#quiz">Открыть квиз</a>
+              <a class="btn btn--ghost" href="#bot">Типовые вопросы</a>
+            </div>
           </article>
         </div>
       </div>
@@ -381,21 +415,21 @@
           <article class="bot-card card-lite">
             <span class="tag tag--soft">Сценарий 1</span>
             <h3>Что делать, если ребёнок боится огня?</h3>
-            <p>Связано с мягким и спокойным обсуждением темы дома и в школе.</p>
+            <p>Страх — нормальная реакция. Разбираем, как говорить с ребёнком об огне без тревоги.</p>
             <button class="btn btn--secondary bot-btn" data-bot="fear">Показать ответ</button>
             <div class="bot-answer" id="answer-fear">Нажмите кнопку, чтобы показать ответ.</div>
           </article>
           <article class="bot-card card-lite">
             <span class="tag tag--soft">Сценарий 2</span>
             <h3>Как составить план эвакуации?</h3>
-            <p>Сценарий ведёт к материалам сайта и дальнейшему повторению темы.</p>
+            <p>Простой алгоритм: как составить маршрут выхода и отработать его вместе с ребёнком.</p>
             <button class="btn btn--secondary bot-btn" data-bot="plan">Показать ответ</button>
             <div class="bot-answer" id="answer-plan">Нажмите кнопку, чтобы показать ответ.</div>
           </article>
           <article class="bot-card card-lite">
             <span class="tag tag--soft">Сценарий 3</span>
             <h3>Когда использовать квиз?</h3>
-            <p>После карточек или как быстрый вход в тему на уроке и дома.</p>
+            <p>Занимает 60 секунд и сразу показывает, какие пункты стоит повторить дома или в классе.</p>
             <button class="btn btn--secondary bot-btn" data-bot="quiz">Показать ответ</button>
             <div class="bot-answer" id="answer-quiz">Нажмите кнопку, чтобы показать ответ.</div>
           </article>

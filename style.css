@@ -666,3 +666,39 @@ input:focus-visible,
 .quiz-restart {
   margin-top: 24px;
 }
+
+/* ── Video section ───────────────────────────── */
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.video-wrap {
+  margin: 0;
+}
+
+.video-wrap__ratio {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.video-wrap__ratio iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-wrap figcaption {
+  margin-top: 10px;
+  font-size: 0.875rem;
+  color: var(--muted, #64748b);
+  line-height: 1.5;
+}
