@@ -1,12 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="100 30 200 230">
-    <rect width="400" height="300" fill="none"/>
-    <g transform="translate(140, 90)">
-        <path d="M10,80 L110,80 L110,120 L10,120 Z" fill="#4a5568"/>
-        <path d="M20,60 L100,60 L100,80 L20,80 Z" fill="#718096"/>
-        <circle cx="60" cy="50" r="40" fill="none" stroke="#e53e3e" stroke-width="8"/>
-        <line x1="32" y1="22" x2="88" y2="78" stroke="#e53e3e" stroke-width="8"/>
-        <circle cx="60" cy="90" r="15" fill="#f6ad55"/>
-        <path d="M45,120 C45,100 75,100 75,120 Z" fill="#f6ad55"/>
-    </g>
-    <text x="200" y="240" font-family="sans-serif" font-size="20" fill="#fff" text-anchor="middle" font-weight="bold">Не прятаться!</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <g transform="translate(200,130)">
+    <rect x="-70" y="10" width="140" height="55" rx="6" fill="#4a5568"/>
+    <rect x="-55" y="-15" width="110" height="30" rx="4" fill="#718096"/>
+    <circle cx="0" cy="-30" r="60" fill="none" stroke="#e53e3e" stroke-width="10"/>
+    <line x1="-42" y1="-72" x2="42" y2="18" stroke="#e53e3e" stroke-width="10"/>
+    <circle cx="0" cy="20" r="22" fill="#f6ad55"/>
+    <path d="M-22,65 C-22,38 22,38 22,65 Z" fill="#f6ad55"/>
+  </g>
+  <text x="200" y="285" font-family="sans-serif" font-size="22" fill="#fff" text-anchor="middle" font-weight="bold">Не прятаться!</text>
 </svg>
