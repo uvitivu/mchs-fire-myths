@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="100 30 200 230">
     <rect width="400" height="300" fill="none"/>
-    <g transform="translate(120, 80)">
-        <text x="40" y="50" font-family="sans-serif" font-size="40" fill="#fff" font-weight="bold">101</text>
-        <text x="120" y="50" font-family="sans-serif" font-size="40" fill="#fff" font-weight="bold">112</text>
-        <rect x="30" y="70" width="100" height="30" fill="#48bb78" rx="8"/>
-        <text x="80" y="90" font-family="sans-serif" font-size="14" fill="#fff" text-anchor="middle" font-weight="bold">+ АДРЕС</text>
+    <g transform="translate(150, 80)">
+        <circle cx="50" cy="40" r="25" fill="#f6ad55"/>
+        <rect x="35" y="65" width="30" height="40" fill="#4a5568" rx="4"/>
+        <text x="50" y="45" font-family="sans-serif" font-size="22" fill="#fff" text-anchor="middle" font-weight="bold">112</text>
+        <path d="M20,105 L80,105 L90,120 L10,120 Z" fill="#718096"/>
     </g>
-    <text x="200" y="240" font-family="sans-serif" font-size="20" fill="#fff" text-anchor="middle" font-weight="bold">Знать номер и свой адрес!</text>
+    <text x="200" y="240" font-family="sans-serif" font-size="20" fill="#fff" text-anchor="middle" font-weight="bold">Назвать адрес и выйти!</text>
 </svg>
